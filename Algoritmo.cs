@@ -40,8 +40,7 @@ public class Algoritmo
         }
     }
 
-    // QuickSort (ordenamiento rápido) breve y recursivo
-    // Tipo: divide y vencerás, en promedio O(n·log n), peor caso O(n²) si el pivote es malo.
+    
     public void QuickSort(int[] arr)
     {
         QuickSortRecursive(arr, 0, arr.Length - 1);
