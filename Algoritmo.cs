@@ -24,7 +24,7 @@ public class Algoritmo
 
     public void BubbleSort(int[] arr)
     {
-        // TODO: Implementar el algoritmo de Bubble Sort tradicional
+        // Implementación del algoritmo Bubble Sort tradicional
         int n = arr.Length;
         for (int i = 0; i < n - 1; i++)
         {
@@ -38,7 +38,32 @@ public class Algoritmo
                 }
             }
         }
+    }
 
+    // QuickSort (ordenamiento rápido) breve y recursivo
+    // Tipo: divide y vencerás, en promedio O(n·log n), peor caso O(n²) si el pivote es malo.
+    public void QuickSort(int[] arr)
+    {
+        QuickSortRecursive(arr, 0, arr.Length - 1);
+    }
+
+    private void QuickSortRecursive(int[] arr, int low, int high)
+    {
+        if (low >= high) return;
+        int pivot = arr[(low + high) / 2];
+        int i = low, j = high;
+        while (i <= j)
+        {
+            while (arr[i] < pivot) i++;
+            while (arr[j] > pivot) j--;
+            if (i <= j)
+            {
+                int tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+                i++; j--;
+            }
+        }
+        if (low < j) QuickSortRecursive(arr, low, j);
+        if (i < high) QuickSortRecursive(arr, i, high);
     }
 }
 
